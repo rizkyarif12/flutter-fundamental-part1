@@ -14,7 +14,7 @@ Lewat HP :
 
 ![alt text](image-4.png)
 
-![alt text](image/hp.png)
+![alt text](image/hp.jpg)
 
 ## Praktikum 3 : Membuat Repository GitHub dan Laporan Praktikum
 
