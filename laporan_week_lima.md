@@ -10,6 +10,12 @@ Kelas : TI-3B
 
 ## Praktikum 2 : Menghubungkan Perangkat Android atau Emulator
 
+Lewat HP :
+
+![alt text](image-4.png)
+
+![alt text](image/hp.png)
+
 ## Praktikum 3 : Membuat Repository GitHub dan Laporan Praktikum
 
 Hasil Repo :
