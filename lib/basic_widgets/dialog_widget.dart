@@ -5,20 +5,7 @@ class MyDialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: MyLayout(),
-      ),
-    );
-  }
-}
-
-class MyLayout extends StatelessWidget {
-  const MyLayout({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
         child: const Text('Show alert'),
@@ -30,8 +17,7 @@ class MyLayout extends StatelessWidget {
   }
 }
 
-showAlertDialog(BuildContext context) {
-  // set up the button
+void showAlertDialog(BuildContext context) {
   Widget okButton = TextButton(
     child: const Text("OK"),
     onPressed: () {
@@ -39,7 +25,6 @@ showAlertDialog(BuildContext context) {
     },
   );
 
-  // set up the AlertDialog
   AlertDialog alert = AlertDialog(
     title: const Text("My title"),
     content: const Text("This is my message."),
@@ -48,7 +33,6 @@ showAlertDialog(BuildContext context) {
     ],
   );
 
-  // show the dialog
   showDialog(
     context: context,
     builder: (BuildContext context) {

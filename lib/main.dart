@@ -6,7 +6,7 @@ import 'package:hello_dunia/basic_widgets/input_selection_widget.dart';
 import 'package:hello_dunia/basic_widgets/scaffold_widget.dart';
 
 void main() {
-  runApp(const TugasNo3());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,28 +20,28 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'TUGAS PRAKITKUM'),
     );
   }
 }
 
-class TugasNo3 extends StatelessWidget {
-  const TugasNo3({super.key});
+// class TugasNo3 extends StatelessWidget {
+//   const TugasNo3({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Row(
-        children: [
-          Expanded(child: MyScaffoldWidget()),
-          Expanded(child: MyDialogWidget()),
-          Expanded(child: MyInputSelectionWidget()),
-          Expanded(child: MyDateTimePickers()),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       home: Row(
+//         children: [
+//           Expanded(child: MyScaffoldWidget()),
+//           Expanded(child: MyDialogWidget()),
+//           Expanded(child: MyInputSelectionWidget()),
+//           Expanded(child: MyDateTimePickers()),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -72,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const MyImageWidget(),
+            const MyInputSelectionWidget(),
+            const MyDateTimePickers(),
+            const MyDialogWidget(),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,

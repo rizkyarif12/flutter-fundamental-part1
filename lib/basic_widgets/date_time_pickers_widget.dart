@@ -1,70 +1,50 @@
 import 'package:flutter/material.dart';
 
-class MyDateTimePickers extends StatelessWidget {
+class MyDateTimePickers extends StatefulWidget {
   const MyDateTimePickers({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Contoh Date Picker',
-      home: MyHomePage(title: 'Contoh Date Picker'),
-    );
-  }
+  _MyDateTimePickersState createState() => _MyDateTimePickersState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class _MyDateTimePickersState extends State<MyDateTimePickers> {
+  DateTime selectedDate =
+      DateTime.now(); // State untuk menyimpan tanggal yang dipilih
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text("${selectedDate.toLocal()}"
+              .split(' ')[0]), // Menampilkan tanggal yang dipilih
+          const SizedBox(
+            height: 20.0,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              _selectDate(context);
+            },
+            child: const Text('Pilih Tanggal'),
+          ),
+        ],
+      ),
+    );
+  }
 
-class _MyHomePageState extends State<MyHomePage> {
-  // Variable/State untuk mengambil tanggal
-  DateTime selectedDate = DateTime.now();
-
-  //  Initial SelectDate FLutter
   Future<void> _selectDate(BuildContext context) async {
-    // Initial DateTime FIinal Picked
     final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2015, 8),
+      lastDate: DateTime(2101),
+    );
     if (picked != null && picked != selectedDate) {
       setState(() {
-        selectedDate = picked;
+        selectedDate = picked; // Memperbarui state dengan tanggal yang dipilih
       });
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Text("${selectedDate.toLocal()}".split(' ')[0]),
-            const SizedBox(
-              height: 20.0,
-            ),
-            ElevatedButton(
-              onPressed: () => {
-                _selectDate(context),
-                // ignore: avoid_print
-                print(selectedDate.day + selectedDate.month + selectedDate.year)
-              },
-              child: const Text('Pilih Tanggal'),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
